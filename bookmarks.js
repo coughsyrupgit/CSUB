@@ -36,6 +36,7 @@ var CSUB = {
                     if (links.length) {
                         var $linksList = $node.find('.' + self.markup.classes.linksList);
                         links.forEach(function(link, index, array) {
+                            if (typeof(link.url) != "undefined" )
                             $node = $(self.markup.blocks.chip).appendTo($linksList);
                             $node.find('.' + self.markup.classes.chip).attr('href', link.url)
                                 .children('.' + self.markup.classes.chipIcon).html(link.title.charAt(0))
