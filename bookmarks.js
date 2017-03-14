@@ -3,11 +3,12 @@ var CSUB = {
         blocks: {
             grid: '<div class="mdl-grid"></div>',
             cell: '<div class="mdl-cell"></div>',
-            card: '<div class="mdl-card mdl-shadow--2dp"><div class="mdl-card__media"><img src="" border="0" alt=""></div><div class="mdl-card__actions"><ul class="folder-links"></ul></div></div>',
+            card: '<div class="mdl-card mdl-shadow--2dp"><div class="mdl-card__media"></div><div class="mdl-card__actions"><ul class="folder-links"></ul></div></div>',
             chip: '<li><a class="mdl-chip mdl-chip--contact" href="#"><span class="chip-icon mdl-chip__contact mdl-color--primary mdl-color-text--white"></span><span class="mdl-chip__text"></span></a></li>'
         },
         classes: {
             linksList:  'folder-links',
+            cardMedia:  'mdl-card__media',
             chip:       'mdl-chip',
             chipText:   'mdl-chip__text',
             chipIcon:   'chip-icon'
@@ -32,7 +33,7 @@ var CSUB = {
                     $node = $container;
                     $node = $(self.markup.blocks.cell).appendTo($node);
                     $node = $(self.markup.blocks.card).appendTo($node);
-
+                    $node.find('.' + self.markup.classes.cardMedia).append(folder.title);
                     if (links.length) {
                         var $linksList = $node.find('.' + self.markup.classes.linksList);
                         links.forEach(function(link, index, array) {
