@@ -28,8 +28,12 @@ define([
             var self = this;
 
             data.folders.forEach(function(val, i, arr) {
-                var $block = $(interface.cardHtml).appendTo(self.$container);
-                $block.find('.mdl-card__media').html(val.title);
+                var $block = interface.insertCard(self.$container, "folder-" + val.id, val.title);
+            });
+
+            data.links.forEach(function(val, i, arr) {
+                var $container = $('.folder-' + val.parentId).find('.folder-links')
+                    $block = interface.insertChip($container, "folder-" + val.id, val.url, val.title.charAt(0), val.title);
             });
         }
     }

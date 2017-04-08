@@ -2,10 +2,46 @@
 <html>
 <head>
     <title>Configure your Useful Bookmarks</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.purple-light_blue.min.css" />
     <script data-main="js/nodes/config" src="js/lib/require.js"></script>
     <script src="js/requirejs-config.js"></script>
 </head>
 <body>
+    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+        <div class="mdl-tabs__tab-bar">
+        <a href="#folders" class="mdl-tabs__tab is-active">Folders</a>
+            <a href="#tab2" class="mdl-tabs__tab">Another tab</a>
+            <a href="#tab3" class="mdl-tabs__tab">One more tab</a>
+        </div>
 
+        <div class="mdl-tabs__panel is-active" id="folders">
+            <h2>Folder image</h2>
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Image link</th>
+                    </tr>
+                </thead>
+                <tbody id="folderImages">
+                    <!-- <tr>
+                        <td class="mdl-data-table__cell--non-numeric title">Title</td>
+                        <td class="mdl-data-table__cell--non-numeric image">
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <input class="mdl-textfield__input" type="text" id="f-img-1">
+                                <label class="mdl-textfield__label" for="sample1">Link</label>
+                            </div>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+        <div class="mdl-tabs__panel" id="tab2">
+        </div>
+        <div class="mdl-tabs__panel" id="tab3">
+        </div>
+    </div>
 </body>
 </html>

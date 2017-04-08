@@ -1,23 +1,34 @@
 define([
     'jquery',
     'core',
-    'core.data'
-], function ($, core, data) {
+    'core.data',
+    'core.interface'
+], function ($, core, data, interface) {
 
     var config = {
         options: {},
 
         init: function() {
             var self = this;
+            console.log("config init started");
 
             core.init();
 
             $(window).on("csub-dataready", $.proxy(this.onDataReady, self));
-            console.log("config inited");
         },
 
         onDataReady: function () {
-            this.restoreOptions();
+            this.createForms();
+            //this.restoreOptions();
+        },
+
+        createForms: function () {
+            for( var i = 0; i < data.folders.length; i++) {
+                $block = $('<tr></tr>').appendTo($('#folderImages'));
+                interface.insertTableCell($block, "title", data.folders[i].title);
+                $imgcell = interface.insertTableCell($block, "image", "");
+                interface.insertTextField($imgcell, 'folderImg-' + data.folders[i].id, 'Image link');
+            }
         },
 
         restoreOptions: function () {
@@ -27,20 +38,18 @@ define([
                 folderImages : false
             }, function(items) {
                 self.options = items;
-                //self.updateForm();
+                self.updateForm();
             });
         },
 
-        /*updateForm: function () {
+        updateForm: function () {
             var self = this,
-                folders = data.bookmarksTree[0].children[0].children;
+                folders = data.folders;
 
-            folders.forEach(function (item, i, array) {
-               //render the fields
+            folders.forEach(function() {
+                body.append('<input type="text" />')
             });
-
-            console.log(data.bookmarksTree[0].children[0]);
-        }*/
+        }
     }
 
     $(document).ready(function() {
