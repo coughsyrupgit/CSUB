@@ -2,6 +2,7 @@
   "name": "CS Useful Bookmarks",
   "description": "CS Useful Bookmarks",
   "version": "0.1",
+  "options_page" : "configure.html",
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
@@ -11,7 +12,8 @@
   },
   "permissions": [
     "tabs",
-    "bookmarks"
+    "bookmarks",
+    "storage"
   ],
   "manifest_version": 2
 }
