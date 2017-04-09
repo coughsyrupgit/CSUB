@@ -1,11 +1,23 @@
 define([
     'jquery',
+    'core.data',
     'material'
-], function ($, ko) {
+], function ($, data) {
     var interface = {
 
         init: function() {
+            var self = this;
+
             console.log("core.interface init started");
+            $(window).on('csub-dataready', $.proxy(self.onDataReady, self));
+        },
+
+        onDataReady: function() {
+            var bgImage = data.config.globals.globalBgImg;
+
+            if (bgImage) {
+                $('body').css({"background-image" : "url('" + bgImage + "')"}).addClass('with-background');
+            }
         },
 
         insertCard: function(container, classes, title, img = false) {

@@ -11,12 +11,19 @@
 <body>
     <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
         <div class="mdl-tabs__tab-bar">
-        <a href="#folders" class="mdl-tabs__tab is-active">Folders</a>
-            <a href="#tab2" class="mdl-tabs__tab">Another tab</a>
+        <a href="#global" class="mdl-tabs__tab is-active">Global</a>
+            <a href="#folders" class="mdl-tabs__tab">Folders</a>
             <a href="#tab3" class="mdl-tabs__tab">One more tab</a>
         </div>
 
-        <div class="mdl-tabs__panel is-active" id="folders">
+        <div class="mdl-tabs__panel is-active" id="global">
+            <h3>Background Image</h3>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="globalBgImg">
+                <label class="mdl-textfield__label" for="globalBgImg">Link to the background image...</label>
+            </div>
+        </div>
+        <div class="mdl-tabs__panel" id="folders">
             <h2>Folder image</h2>
             <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
                 <thead>
@@ -28,8 +35,6 @@
                 <tbody id="folderImages">
                 </tbody>
             </table>
-        </div>
-        <div class="mdl-tabs__panel" id="tab2">
         </div>
         <div class="mdl-tabs__panel" id="tab3">
         </div>

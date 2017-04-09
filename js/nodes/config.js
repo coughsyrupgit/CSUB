@@ -44,7 +44,10 @@ define([
 
             chrome.storage.sync.get({
                 folders     : [],
-                links       : []
+                links       : [],
+                globals      : {
+                    globalBgImg : false
+                },
             }, function(items) {
                 self.options = items;
                 self.updateForm();
@@ -54,18 +57,22 @@ define([
         updateForm: function () {
             var self = this;
 
-            folders = self.options.folders;
+            var folders = self.options.folders;
 
             if (folders.length != 0) {
                 folders.forEach(function(folder, i, arr) {
                     $('#folderImg-' + folder.image.id).val(folder.image.src);
                 });
             }
+
+            var globals = self.options.globals;
+            if (globals.globalBgImg) {
+                $('#globalBgImg').val(globals.globalBgImg);
+            }
         },
 
         setOptions: function () {
             var self = this;
-
 
             self.options.folders = [];
             $('.folder-img-input').find('input').each(function() {
@@ -81,7 +88,12 @@ define([
                     self.options.folders.push(folder);
                 }
             });
-            console.log(self.options.folders);
+
+            var globalBgImg = $('#globalBgImg').val();
+
+            if (globalBgImg != "" ) {
+                self.options.globals.globalBgImg = globalBgImg;
+            }
 
             chrome.storage.sync.clear(function () {
                 chrome.storage.sync.set(self.options);

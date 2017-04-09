@@ -63,7 +63,10 @@ define([
 
             chrome.storage.sync.get({
                 folders     : [],
-                links       : []
+                links       : [],
+                globals     : {
+                    globalBgImg : false
+                }
             }, function(items) {
                 self.config = items;
                 self.isConfigReady = true;
