@@ -22,11 +22,15 @@ body:before {
 
 .mdl-card__media {
     color: #fff;
+}
+
+.mdl-card__media.no-img {
     padding: 10px;
 }
 
 .mdl-card__media img {
     width: 100%;
+    height: auto;
 }
 
 .main {

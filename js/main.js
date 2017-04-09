@@ -27,8 +27,11 @@ define([
         onTreeReady: function () {
             var self = this;
 
-            data.folders.forEach(function(val, i, arr) {
-                var $block = interface.insertCard(self.$container, "folder-" + val.id, val.title);
+            data.folders.forEach(function(folder, i, arr) {
+                var folderConfig = data.getFolderConfig(folder.id),
+                    folderImg = (folderConfig) ? folderConfig.image.src : false;
+
+                interface.insertCard(self.$container, "folder-" + folder.id, folder.title, folderImg);
             });
 
             data.links.forEach(function(val, i, arr) {
