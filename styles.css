@@ -20,6 +20,11 @@ body:before {
     margin: 0 auto;
 }
 
+.mdl-card__media {
+    color: #fff;
+    padding: 10px;
+}
+
 .mdl-card__media img {
     width: 100%;
 }
