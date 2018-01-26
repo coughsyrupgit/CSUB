@@ -22,15 +22,15 @@ define([
 
         insertCard: function(container, classes, title, img = false) {
             if (img) {
-                return $('<div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-table ' + classes + '"><div class="mdl-card mdl-shadow--2dp"><div class="mdl-card__media"><img src="' + img + '" alt="' + title + '"></div><div class="mdl-card__actions"><ul class="folder-links"></ul></div></div></div>').appendTo(container);
+                return $('<div class="uk-width-1-2@m uk-width-1-3@l ' + classes + '"><div class="uk-card uk-card-small uk-card-default uk-card-hover"><div class="uk-card uk-card-small uk-card-default"><div class="uk-grid-small uk-flex-middle" uk-grid><div class="uk-width-auto"><img src="' + img + '" alt="' + title + '"></div>' + '<div class="uk-width-expand"><h3 class="uk-card-title">' + title + '</h3></div></div></div><div class="uk-card-body"><ul class="uk-list uk-list-striped uk-nav folder-links"></ul></div></div></div>').appendTo(container);
             } else {
-                return $('<div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-table ' + classes + '"><div class="mdl-card mdl-shadow--2dp"><div class="mdl-card__media no-img">' + title + '</div><div class="mdl-card__actions"><ul class="folder-links"></ul></div></div></div>').appendTo(container);
+                return $('<div class="uk-width-1-2@m uk-width-1-3@l ' + classes + '"><div class="uk-card uk-card-small uk-card-default uk-card-hover"><div class="mdl-card__media no-img">' + '<div class="uk-card-header"><h3 class="uk-card-title">' + title + '</h3></div>' + '</div><div class="uk-card-body"><ul class="uk-list uk-list-striped uk-nav folder-links"></ul></div></div></div>').appendTo(container);
             }
             
         },
 
         insertChip: function(container, classes, link, icon, text) {
-            return $('<li><a class="mdl-chip mdl-chip--contact ' + classes + '" href="' + link + '"><span class="mdl-chip__contact mdl-color--primary mdl-color-text--white">' + icon + '</span><span class="mdl-chip__text">' + text + '</span></a></li>').appendTo(container);
+            return $('<li><a class="uk-link ' + classes + '" href="' + link + '">' + text + '</a></li>').appendTo(container);
         },
 
         insertTextField: function(container, classes, id, attributes, label) {
