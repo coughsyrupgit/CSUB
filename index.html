@@ -6,60 +6,31 @@
     <meta name="description" content="Workdraft for CoughSyrup Useful Bookmarks">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>CS BU Workdraft</title>
-
+    <link rel="stylesheet" href="css/uikit.min.css">
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.purple-light_blue.min.css" />
+    <script src="js/lib/uikit.min.js"></script>
+    <script src="js/lib/uikit-icons.min.js"></script>
     <script data-main="js/main" src="js/lib/require.js"></script>
     <script src="js/requirejs-config.js"></script>
 </head>
 <body>
-    <div class="mdl-layout">
-        <div class="mdl-layout--content mdl-color--grey-100">
-            <div class="mdl-grid top-search">
-                <div class="mdl-cell mdl-cell--2-col mdl-cell--10-offset search-col">
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-                          <i class="material-icons">search</i>
-                        </label>
-                        <div class="mdl-textfield__expandable-holder">
-                          <input class="mdl-textfield__input" type="text" id="search">
-                          <label class="mdl-textfield__label" for="search">Enter your query...</label>
-                        </div>
-                    </div>
+    <div class="uk-background-secondary uk-light uk-padding-small uk-margin-large-bottom">
+        <div class="uk-container">
+            <div class="uk-flex-middle" uk-grid>
+                <div class="uk-width-expand">
+                    <h1 class="uk-margin-remove-bottom uk-h4">Bookmarks</h1>
+                </div>
+                <div class="uk-width-1-4">
+                    <form class="uk-search uk-search-default">
+                        <a href="" class="uk-search-icon-flip" uk-search-icon></a>
+                        <input class="uk-search-input" type="search" placeholder="Search...">
+                    </form>
                 </div>
             </div>
-            <div class="main">
-                <div class="mdl-grid" id="bookmarksTree">
-                  
-
-                    <!-- <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-table">
-                        <div class="mdl-card mdl-shadow--2dp">
-                          <div class="mdl-card__media">
-                            <img src="images/folder1.png" border="0" alt="">
-                          </div>
-                          <div class="mdl-card__actions">
-                            <ul class="ffolder-links">
-                              <a class="mdl-chip mdl-chip--contact" href="#">
-                                <span class="mdl-chip__contact mdl-color--primary mdl-color-text--white">A</span>
-                                <span class="mdl-chip__text">Contact Chip Contact Chip Contact Chip Contact Chip Contact Chip Contact Chip Contact Chip Contact Chip</span>
-                              </a>
-                              <a class="mdl-chip mdl-chip--contact" href="#">
-                                <span class="mdl-chip__contact mdl-color--primary mdl-color-text--white">A</span>
-                                <span class="mdl-chip__text">Contact Chip</span>
-                              </a>
-                              <a class="mdl-chip mdl-chip--contact" href="#">
-                                <span class="mdl-chip__contact mdl-color--primary mdl-color-text--white">A</span>
-                                <span class="mdl-chip__text">Contact Chip</span>
-                              </a>
-                            </ul>
-                          </div>
-                        </div>
-                    </div> -->
-                </div>
-            </div>
+        </div>
+    </div>
+    <div class="uk-container">
+        <div class="uk-grid-match" uk-grid id="bookmarksTree">
         </div>
     </div>
 </body>

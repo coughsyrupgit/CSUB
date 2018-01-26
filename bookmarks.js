@@ -2,16 +2,13 @@ var CSUB = {
     markup : {
         blocks: {
             grid: '<div class="mdl-grid"></div>',
-            cell: '<div class="mdl-cell"></div>',
-            card: '<div class="mdl-card mdl-shadow--2dp"><div class="mdl-card__media"></div><div class="mdl-card__actions"><ul class="folder-links"></ul></div></div>',
-            chip: '<li><a class="mdl-chip mdl-chip--contact" href="#"><span class="chip-icon mdl-chip__contact mdl-color--primary mdl-color-text--white"></span><span class="mdl-chip__text"></span></a></li>'
+            cell: '<div class="uk-width-1-2@m uk-width-1-3@l"></div>',
+            card: '<div class="uk-card uk-card-default"><div class="uk-card-header"></div><div class="uk-card-body"></div></div>',
+            chip: '<li><a class="uk-link-text" href="#"></a></li>'
         },
         classes: {
             linksList:  'folder-links',
-            cardMedia:  'mdl-card__media',
-            chip:       'mdl-chip',
-            chipText:   'mdl-chip__text',
-            chipIcon:   'chip-icon'
+            chip:       'uk-link-text'
         }
     },
 
@@ -33,15 +30,15 @@ var CSUB = {
                     $node = $container;
                     $node = $(self.markup.blocks.cell).appendTo($node);
                     $node = $(self.markup.blocks.card).appendTo($node);
-                    $node.find('.' + self.markup.classes.cardMedia).append(folder.title);
+                    //$node.find('.' + self.markup.classes.cardMedia).append(folder.title);
                     if (links.length) {
                         var $linksList = $node.find('.' + self.markup.classes.linksList);
                         links.forEach(function(link, index, array) {
                             if (typeof(link.url) != "undefined" )
                             $node = $(self.markup.blocks.chip).appendTo($linksList);
                             $node.find('.' + self.markup.classes.chip).attr('href', link.url)
-                                .children('.' + self.markup.classes.chipIcon).html(link.title.charAt(0))
-                                .siblings('.' + self.markup.classes.chipText).html(link.title);
+                                //.children('.' + self.markup.classes.chipIcon).html(link.title.charAt(0))
+                                .html(link.title);
                         });
                     }
                 }
