@@ -1,7 +1,6 @@
 define([
     'jquery',
-    'core.data',
-    'material'
+    'core.data'
 ], function ($, data) {
     var interface = {
 
