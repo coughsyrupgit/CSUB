@@ -15,8 +15,8 @@ define([
         onDataReady: function() {
             var bgImage = data.config.globals.globalBgImg;
 
-            if (bgImage) {
-                $('body').css({"background-image" : "url('" + bgImage + "')"}).addClass('with-background');
+            if (bgImage && $('body').hasClass('with-background')) {
+                $('body').css({"background-image" : "url('" + bgImage + "')"});
             }
         },
 
@@ -34,11 +34,11 @@ define([
         },
 
         insertTextField: function(container, classes, id, attributes, label) {
-            return $('<div class="mdl-textfield mdl-js-textfield ' + classes + '"><input class="mdl-textfield__input" type="text" id="' + id + '" ' + attributes + '><label class="mdl-textfield__label" for="' + id + '">' + label + '</label></div>').appendTo(container);
+            return $('<div class="uk-width-1-2 ' + classes + '"><label class="uk-form-label" for="' + id + '">' + label + '</label><input class="uk-input" type="text" id="' + id + '" ' + attributes + '></div>').appendTo(container);
         },
 
         insertTableCell: function(container, classes, content) {
-            return $('<td class="mdl-data-table__cell--non-numeric ' + classes + '">' + content + '</td>').appendTo(container);
+            return $('<td class="' + classes + '">' + content + '</td>').appendTo(container);
         }
     }
 
