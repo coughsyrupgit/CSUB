@@ -27,10 +27,14 @@
                 <ul class="uk-switcher" id="configTabsContent">
                     <li class="uk-form uk-form-stacked">
                         <legend class="uk-legend uk-margin-bottom">Background Image</legend>
-                        <div class="uk-fieldset">
-                            <label class="uk-form-label" for="globalBgImg">Link to the background image...</label>
-                            <div class="uk-form-controls">
-                                <input class="uk-input uk-width-1-2" type="text" id="globalBgImg">
+                        <div class="uk-fieldset uk-clearfix">
+                            <label for="globalBgImg" class="uk-form-label"></label>
+                            <div class="uk-align-left">
+                                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="50"  id="globalBgImgPreview" />
+                            </div>
+                            <div uk-form-custom="target: true">
+                                <input type="file" id="globalBgImg">
+                                <button class="uk-button uk-button-default" type="button" tabindex="-1">Select</button>
                             </div>
                         </div>
                     </li>

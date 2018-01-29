@@ -12,10 +12,10 @@ define([
         },
 
         onDataReady: function() {
-            var bgImage = data.config.globals.globalBgImg;
+            var bgImage = data.localConfig.bgImage;
 
             if (bgImage && $('body').hasClass('with-background')) {
-                $('body').css({"background-image" : "url('" + bgImage + "')"});
+                $('body').css({"background-image" : "url(" + bgImage + ")"});
             }
         },
 
@@ -29,7 +29,7 @@ define([
         },
 
         insertChip: function(container, classes, link, icon, text) {
-            return $('<li><a class="uk-link ' + classes + '" href="' + link + '">' + text + '</a></li>').appendTo(container);
+            return $('<li><a class="uk-link ' + classes + '" href="' + link + '">' + '<img src="chrome://favicon/' + link + '" class="uk-margin-small-right"/>' + text + '</a></li>').appendTo(container);
         },
 
         insertTextField: function(container, classes, id, attributes, label) {

@@ -6,7 +6,8 @@ define([
 ], function ($, core, data, interface) {
 
     var config = {
-        options: {},
+        syncOptions: {},
+        localOptions: {},
         folder: {
             id : 0,
             image: function (id, src) {
@@ -44,12 +45,14 @@ define([
 
             chrome.storage.sync.get({
                 folders     : [],
-                links       : [],
-                globals      : {
-                    globalBgImg : false
-                },
+                links       : []
             }, function(items) {
-                self.options = items;
+                self.syncOptions = items;
+                self.updateForm();
+            });
+
+            chrome.storage.local.get(null, function (items) {
+                self.localOptions = items;
                 self.updateForm();
             });
         },
@@ -57,7 +60,7 @@ define([
         updateForm: function () {
             var self = this;
 
-            var folders = self.options.folders;
+            var folders = self.syncOptions.folders;
 
             if (folders.length != 0) {
                 folders.forEach(function(folder, i, arr) {
@@ -65,16 +68,15 @@ define([
                 });
             }
 
-            var globals = self.options.globals;
-            if (globals.globalBgImg) {
-                $('#globalBgImg').val(globals.globalBgImg);
+            if (self.localOptions.bgImage) {
+                $('#globalBgImgPreview').attr("src", self.localOptions.bgImage);
             }
         },
 
         setOptions: function () {
             var self = this;
 
-            self.options.folders = [];
+            self.syncOptions.folders = [];
             $('.folder-img-input').find('input').each(function() {
                 var $this = $(this);
 
@@ -85,19 +87,33 @@ define([
                             image: elem
                         }
 
-                    self.options.folders.push(folder);
+                    self.syncOptions.folders.push(folder);
                 }
             });
 
-            var globalBgImg = $('#globalBgImg').val();
+            var globalBgImg = $('#globalBgImg')[0].files[0];
 
-            if (globalBgImg != "" ) {
-                self.options.globals.globalBgImg = globalBgImg;
+            if (globalBgImg) {
+                var reader = new FileReader();
+                reader.readAsDataURL(globalBgImg);
+                reader.onload = function (event) {
+                    self.localOptions.bgImage = event.target.result;
+                    chrome.storage.local.clear(function () {
+                        chrome.storage.local.set(self.localOptions, function () {
+                            console.log('------------------------\n',self.localOptions,'\n------------------------');
+                        });
+                    });
+                }
             }
 
+            //console.log('------------------------\n',$('#globalBgImgFile')[0].files[0],'\n------------------------');
+
             chrome.storage.sync.clear(function () {
-                chrome.storage.sync.set(self.options);
+                chrome.storage.sync.set(self.syncOptions);
             });
+            
+
+            self.restoreOptions();
         }
     }
 

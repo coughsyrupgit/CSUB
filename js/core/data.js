@@ -16,6 +16,7 @@ define([
             chrome.bookmarks.getTree($.proxy(self.onTreeReady, self));
             $(window).on('csub-treeready', $.proxy(self.onReadyFires, self));
             $(window).on('csub-configready', $.proxy(self.onReadyFires, self));
+            $(window).on('csub-localconfigready', $.proxy(self.onReadyFires, self));
             self.getConfig();
         },
 
@@ -26,7 +27,7 @@ define([
         onReadyFires: function () {
             var self = this;
             
-            if (self.isTreeReady && self.isConfigReady) {
+            if (self.isTreeReady && self.isConfigReady && self.isLocalConfigReady) {
                 $(window).trigger('csub-dataready');
             }
         },
@@ -67,14 +68,17 @@ define([
 
             chrome.storage.sync.get({
                 folders     : [],
-                links       : [],
-                globals     : {
-                    globalBgImg : false
-                }
+                links       : []
             }, function(items) {
                 self.config = items;
                 self.isConfigReady = true;
                 $(window).trigger('csub-configready');
+            });
+
+            chrome.storage.local.get(null, function(items) {
+                self.localConfig = items;
+                self.isLocalConfigReady = true;
+                $(window).trigger('csub-localconfigready');
             });
         },
 

@@ -1,7 +1,7 @@
 {
   "name": "CS Useful Bookmarks",
   "description": "CS Useful Bookmarks",
-  "version": "0.2",
+  "version": "0.5",
   "options_page" : "configure.html",
   "chrome_url_overrides": {
     "newtab": "index.html"
@@ -13,7 +13,10 @@
   "permissions": [
     "tabs",
     "bookmarks",
-    "storage"
+    "storage",
+    "unlimitedStorage",
+    "chrome://favicon/"
   ],
+  "content_security_policy": "script-src 'self'; object-src 'self'",
   "manifest_version": 3
 }
