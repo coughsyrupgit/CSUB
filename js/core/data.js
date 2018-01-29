@@ -43,7 +43,11 @@ define([
 
             iterator++;
             if (typeof(node.children) !== "undefined") {
-                if (element.id != 0) {
+                var hasChildLinks = node.children.filter(function (item) {
+                    return typeof item.children == "undefined"
+                }).length > 0 ? true : false;
+                
+                if (element.id != 0 && hasChildLinks) {
                     data.folders.push(element);
                 }
                 node.children.forEach(function(val, index, array) {
