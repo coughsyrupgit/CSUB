@@ -1,0 +1,29 @@
+{
+  "name": "csub",
+  "version": "0.2.0",
+  "description": "CoughSyrup Useful Bookmarks is the extension for GChrome.",
+  "main": "bookmarks.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coughsyrupgit/CSUB.git"
+  },
+  "author": "Alex Galdin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coughsyrupgit/CSUB/issues"
+  },
+  "homepage": "https://github.com/coughsyrupgit/CSUB#readme",
+  "devDependencies": {
+    "autoprefixer": "^7.2.5",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-less": "^3.4.0",
+    "gulp-postcss": "^7.0.1",
+    "pump": "^2.0.1",
+    "uikit": "^3.0.0-beta.38",
+    "vue": "^2.5.13"
+  }
+}
