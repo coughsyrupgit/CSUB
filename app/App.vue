@@ -1,12 +1,12 @@
 <template>
-    <Folders></Folders>
+    <folders-list></folders-list>
 </template>
 
 <script>
-import Folders from "./components/folders.vue";
+import foldersList from "./components/folders.vue";
 export default {
     components: {
-        Folders
+        foldersList
     }
 }
 </script>
