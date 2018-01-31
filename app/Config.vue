@@ -10,6 +10,9 @@
                 <div class="uk-width-1-4@m">
                     <config-nav></config-nav>
                 </div>
+                <div class="uk-width-3-4">
+                    <button class="uk-button uk-button-primary uk-margin-top" @click="saveConfig">Save</button>
+                </div>
             </div>
         </div>
     </div>
@@ -19,6 +22,11 @@
 import ConfigNav from "./components/configure/navigation.vue";
 
 export default {
+    methods: {
+        saveConfig: function () {
+            console.log('------------------------\n','Save config','\n------------------------');
+        }
+    },
     components: {
         ConfigNav   
     }

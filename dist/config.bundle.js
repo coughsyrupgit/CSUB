@@ -9328,10 +9328,18 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
+    methods: {
+        saveConfig: function () {
+            console.log('------------------------\n','Save config','\n------------------------');
+        }
+    },
     components: {
         ConfigNav: __WEBPACK_IMPORTED_MODULE_0__components_configure_navigation_vue__["a" /* default */]   
     }
@@ -9408,15 +9416,11 @@ if (false) {(function () {
             items: [
                 {
                     id: 0,
-                    title: 'Nav Item'
+                    title: 'Global'
                 },
                 {
                     id: 1,
-                    title: 'Item #2'
-                },
-                {
-                    id: 2,
-                    title: 'Another Nav Item'
+                    title: 'Folders'
                 }
             ]
         }
@@ -9471,7 +9475,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('div', {
     staticClass: "uk-width-1-4@m"
-  }, [_c('config-nav')], 1)])])])
+  }, [_c('config-nav')], 1), _vm._v(" "), _c('div', {
+    staticClass: "uk-width-3-4"
+  }, [_c('button', {
+    staticClass: "uk-button uk-button-primary uk-margin-top",
+    on: {
+      "click": _vm.saveConfig
+    }
+  }, [_vm._v("Save")])])])])])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {

@@ -14,15 +14,11 @@ export default {
             items: [
                 {
                     id: 0,
-                    title: 'Nav Item'
+                    title: 'Global'
                 },
                 {
                     id: 1,
-                    title: 'Item #2'
-                },
-                {
-                    id: 2,
-                    title: 'Another Nav Item'
+                    title: 'Folders'
                 }
             ]
         }
