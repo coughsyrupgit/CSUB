@@ -1,16 +1,18 @@
 const FolderObject = function (treeNode) {
+    let links = treeNode.children.filter(function (item) {
+        return !item.children
+    });
+
     return {
         id: treeNode.id,
         title: treeNode.title,
-        isEmpty: (treeNode.children.filter(function (item) {
-            return !item.children
-        }).length) ? false : true
+        isEmpty: (links.length) ? false : true,
+        links: links
     }
 }
 
 let data = {
-    folders: [],
-    links: []
+    folders: []
 }
 
 let dataModel = {

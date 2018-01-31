@@ -7,7 +7,7 @@ module.exports = {
         app: './app/index.js'/*,
         configure: './app/configure.js'*/
     },
-    devtool: 'inline-source-map',
+    //devtool: 'inline-source-map',
     /*plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({

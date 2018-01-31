@@ -15,7 +15,7 @@
                 <h3 class="uk-card-title">{{ folder.title }}</h3>
             </div>
             <div class="uk-card-body">
-                <links-list></links-list>
+                <links-list :links="folder.links"></links-list>
             </div>
         </div>
     </div>

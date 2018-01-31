@@ -1,5 +1,5 @@
 <template>
-    <ul class="uk-list uk-list-striped uk-nav">
+    <ul class="uk-list uk-list-striped uk-nav" v-if="links.length">
         <li 
             is="link-item"
             v-for="link in links"
@@ -12,20 +12,10 @@
 import linkItem from "./link.vue";
 
 export default {
-    data() {
-        return {
-            links: [
-                {
-                    id: 0,
-                    label: "Test Link",
-                    reference: '#'
-                },
-                {
-                    id: 1,
-                    label: "Another Link",
-                    reference: '#'
-                }
-            ]
+    props: {
+        links : {
+            type: Array,
+            required: true
         }
     },
     components: {

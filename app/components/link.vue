@@ -1,8 +1,8 @@
 <template>
     <li>
-        <a class="uk-link" :href="link.reference">
-            <img class="uk-margin-small-right" :src="'chrome://favicon/' + link.reference"/>
-            {{ link.label }}
+        <a class="uk-link" :href="link.url">
+            <img class="uk-margin-small-right" :src="'chrome://favicon/' + link.url"/>
+            {{ link.title }}
         </a>
     </li>
 </template>

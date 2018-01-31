@@ -8,18 +8,12 @@ import {data, dataModel} from "./model/treedata.js";
 
 dataModel.getTree();
 
+console.log('------------------------\n',data,'\n------------------------');
+
 export default {
     data() {
         return data;
     },
-    /*computed: {
-        folders: function () {
-            return data.folders
-        },
-        links: function () {
-            return data.links
-        }
-    },*/
     components: {
         foldersList
     }
