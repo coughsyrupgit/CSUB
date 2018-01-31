@@ -4,21 +4,23 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: './app/index.js'/*,
-        configure: './app/configure.js'*/
+        app: './app/index.js',
+        config: './app/config.js'
     },
     //devtool: 'inline-source-map',
-    /*plugins: [
+    plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            title: 'CoughSyrup Useful Bookmarks',
-            filename: 'index.html'
+            title: 'CS Useful Bookmarks',
+            filename: 'index.html',
+            chunks: ['app']
         }),
         new HtmlWebpackPlugin({
-            title: 'Configure your Useful Bookmarks',
-            filename: 'configure.html'
+            title: 'CS Useful Bookmarks Configuration',
+            filename: 'configure.html',
+            chunks: ['config']
         })
-    ],*/
+    ],
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
@@ -37,13 +39,13 @@ module.exports = {
                 use: [
                     'vue-loader'
                 ]
-            }
-            /*{
+            },
+            {
                 test: /\.json$/,
                 use: [
                     'file-loader?name=[path][name].[ext]&context=./app/static'
                 ]
-            }*/
+            }
         ]
     }
 }
