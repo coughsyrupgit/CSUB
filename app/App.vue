@@ -8,8 +8,6 @@ import {data, dataModel} from "./model/treedata.js";
 
 dataModel.getTree();
 
-console.log('------------------------\n',data,'\n------------------------');
-
 export default {
     data() {
         return data;
