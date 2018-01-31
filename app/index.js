@@ -12,6 +12,5 @@ Vue.config.productionTip = false;
 
 new Vue({
     el: "#bookmarksTree",
-    render: h => h(App)/*,
-    components: {App}*/
+    render: h => h(App)
 })
