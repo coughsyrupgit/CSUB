@@ -3,6 +3,7 @@ import 'uikit/dist/js/uikit.min.js'
 import 'uikit/dist/js/uikit-icons.min.js'
 import Vue from 'vue'
 import Config from './Config.vue'
+import configModel from './model/config.js'
 
 let root = document.createElement('div');
 

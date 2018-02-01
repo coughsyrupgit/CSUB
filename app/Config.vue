@@ -11,6 +11,19 @@
                     <config-nav></config-nav>
                 </div>
                 <div class="uk-width-3-4">
+                    <ul class="uk-switcher" id="configTabsContent">
+                        <li class="uk-form uk-form-stacked">
+                            <form-fieldset legend="Background">
+                                <form-field forid="cs-global-background">
+                                    <field-image id="cs-global-background" :image-src="global.background"></field-image>
+                                </form-field>
+                            </form-fieldset>
+                        </li>
+                        <li class="uk-form uk-form-stacked">
+                            <form-fieldset legend="Folders">
+                            </form-fieldset>
+                        </li>
+                    </ul>
                     <button class="uk-button uk-button-primary uk-margin-top" @click="saveConfig">Save</button>
                 </div>
             </div>
@@ -20,15 +33,27 @@
 
 <script>
 import ConfigNav from "./components/configure/navigation.vue";
+import configModel from "./model/config.js";
+import FormFieldset from "./components/fieldset.vue";
+import FormField from "./components/field.vue"
+import FieldImage from "./components/field-types/image.vue"
 
 export default {
+    data() {
+        return configModel.options
+    },
     methods: {
         saveConfig: function () {
-            console.log('------------------------\n','Save config','\n------------------------');
+            configModel.set();
         }
     },
     components: {
-        ConfigNav   
+        ConfigNav,
+        FormFieldset,
+        FormField,
+        FieldImage
     }
 }
+
+console.log(configModel.options)
 </script>

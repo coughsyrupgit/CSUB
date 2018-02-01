@@ -11,30 +11,32 @@ const FolderObject = function (treeNode) {
     }
 }
 
-let data = {
-    folders: []
-}
-
 let dataModel = {
-    
-    getTree: function () {
-        let self = this;
+    data: {
+        folders: []
+    },
+
+    getTree: function (callback) {
+        const self = this;
 
         chrome.bookmarks.getTree(function (tree) {
             self.prepareData.call(self, tree)
+            if (callback && typeof callback === 'function') {
+                callback(self.data)
+            }
         });
     },
 
     prepareData: function (tree) {
-        let self = this;
+        const self = this;
         
         tree.forEach(function(item, index) {
             if (item.children) {
-                data.folders.push(new FolderObject(item))
+                self.data.folders.push(new FolderObject(item))
                 self.prepareData(item.children);
             }
         });
     }
 }
 
-export {data, dataModel}
+export default dataModel
